@@ -28,7 +28,8 @@
                 <TextView
                     android:id="@+id/tvOut"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:textSize="15sp">
                 </TextView>
             </LinearLayout>
 
@@ -45,7 +46,8 @@
                 <TextView
                     android:id="@+id/tvIn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:textSize="15sp">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
@@ -62,7 +64,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button style="@style/OperationButton" android:id="@+id/btnProcent" android:text="%" android:onClick="oclBtnProcent"/>
+                <Button style="@style/OperationButton" android:id="@+id/btnPercent" android:text="%" android:onClick="oclBtnProcent"/>
                 <Button style="@style/OperationButton" android:id="@+id/btnClear" android:text="C" android:onClick="oclBtnClear"/>
                 <Button style="@style/OperationButton" android:id="@+id/btnBack" android:text="←" android:onClick="oclBtnBack"/>
                 <Button style="@style/OperationButton" android:id="@+id/btnPlus" android:text="+" android:onClick="oclBtnPlus" />

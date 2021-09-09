@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnNine;
     Button btnZero;
     Button btnResult;
+    Button btnBack;
+    Button btnPercent;
+    Button btnClear;
+
     TextView myAwesomeTextView;
 
     @Override
@@ -45,27 +49,16 @@ public class MainActivity extends AppCompatActivity {
         btnEight = (Button) findViewById(R.id.btnEight);
         btnNine = (Button) findViewById(R.id.btnNine);
         btnZero = (Button) findViewById(R.id.btnZero);
+        btnBack = (Button) findViewById(R.id.btnBack);
+        btnClear = (Button) findViewById(R.id.btnClear);
+        btnPercent = (Button) findViewById(R.id.btnPercent);
 
         btnResult = (Button) findViewById(R.id.btnResult);
         tvIn = (TextView)findViewById(R.id.tvIn);
         tvOut = (TextView)findViewById(R.id.tvOut);
-        tvOut.setText("Test"); // Это работает, текст изменяется
         getSupportActionBar().hide();
-
-        View.OnClickListener oclBtnResult = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Expression expression = new Expression((String)tvIn.getText());
-                String answer = new  String(String.valueOf(expression.eval()));
-                tvOut.setText(answer);
-            }
-        };
-
-        btnResult.setOnClickListener(oclBtnResult);
+        initView();
     }
-
-
-
 
     public void oclBtnOne(View view) {
         tvIn.setText(tvIn.getText() + "1");
@@ -98,6 +91,40 @@ public class MainActivity extends AppCompatActivity {
         tvIn.setText(tvIn.getText() + "0");
     }
 
+    public void initView(){
+
+        View.OnClickListener oclBtnResult = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!tvIn.getText().equals("")){
+                    Expression expression = new Expression((String)tvIn.getText());
+                    String answer = new  String(String.valueOf(expression.eval()));
+                    tvOut.setText(answer);
+                }
+            }
+        };
+
+        View.OnClickListener oclBtnBack = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String temp = new String((String) tvIn.getText());
+                temp = temp.substring(0, temp.length() - 1);
+                tvIn.setText(temp);
+            }
+        };
+
+        View.OnClickListener oclBtnClear = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                tvIn.setText("");
+            }
+        };
+
+        btnResult.setOnClickListener(oclBtnResult);
+        btnBack.setOnClickListener(oclBtnBack);
+        btnClear.setOnClickListener(oclBtnClear);
+    }
+
     @SuppressLint("SetTextI18n")
     public void oclBtnPlus(View view) {
         String temp  = new String ((String)tvIn.getText());
@@ -105,23 +132,12 @@ public class MainActivity extends AppCompatActivity {
         if(!temp.equals("+")) tvIn.setText(tvIn.getText() + "+");
     }
 
-    @SuppressLint("SetTextI18n")
-    public void oclBtnClear(View view) {
-        String temp  = new String ((String)tvIn.getText());
-        temp = temp.substring(temp.length() - 1);
-        if(!temp.equals("+")) tvIn.setText(tvIn.getText() + "+");
-    }
-
-    @SuppressLint("SetTextI18n")
+    //@SuppressLint("SetTextI18n")
     /*public void oclBtnResult(View view) {
         Expression expression = new Expression((String)tvIn.getText());
         CharSequence answer = (CharSequence) expression.eval();
         tvOut.setText(answer);
     }*/
-
-    public void oclBtnDelete (View view) {
-
-    }
 
 }
 
