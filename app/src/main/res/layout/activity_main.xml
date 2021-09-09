@@ -2,9 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@android:style/Theme.Black.NoTitleBar"
     android:padding="8dp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,8 +28,7 @@
                 <TextView
                     android:id="@+id/tvOut"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="TextView">
+                    android:layout_height="match_parent">
                 </TextView>
             </LinearLayout>
 
@@ -43,8 +45,7 @@
                 <TextView
                     android:id="@+id/tvIn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="TextView">
+                    android:layout_height="match_parent">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
@@ -61,10 +62,10 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button style="@style/OperationButton" android:id="@+id/btnProcent" android:text="%"/>
-                <Button style="@style/OperationButton" android:id="@+id/btnClear" android:text="C"/>
-                <Button style="@style/OperationButton" android:id="@+id/btnBack" android:text="←"/>
-                <Button style="@style/OperationButton" android:id="@+id/btnPlus" android:text="+" />
+                <Button style="@style/OperationButton" android:id="@+id/btnProcent" android:text="%" android:onClick="oclBtnProcent"/>
+                <Button style="@style/OperationButton" android:id="@+id/btnClear" android:text="C" android:onClick="oclBtnClear"/>
+                <Button style="@style/OperationButton" android:id="@+id/btnBack" android:text="←" android:onClick="oclBtnBack"/>
+                <Button style="@style/OperationButton" android:id="@+id/btnPlus" android:text="+" android:onClick="oclBtnPlus" />
 
 
             </LinearLayout>
@@ -74,13 +75,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
-                    android:id="@+id/btnOne"
-                    style="@style/NumberButton"
-                    android:text="1" android:onClick="oclBtnOne"/>
+                <Button android:id="@+id/btnOne" style="@style/NumberButton" android:text="1" android:onClick="oclBtnOne" />
                 <Button style="@style/NumberButton" android:id="@+id/btnTwo" android:text="2" android:onClick="oclBtnTwo" />
-                <Button style="@style/NumberButton" android:id="@+id/btnThree" android:text="3" />
-                <Button style="@style/OperationButton" android:id="@+id/btnDivide" android:text="/"/>
+                <Button style="@style/NumberButton" android:id="@+id/btnThree" android:text="3" android:onClick="oclBtnThree" />
+                <Button style="@style/OperationButton" android:id="@+id/btnDivide" android:text="/" android:onClick="oclBtnDivide"/>
             </LinearLayout>
 
 
@@ -89,10 +87,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button style="@style/NumberButton" android:id="@+id/btnFore" android:text="4" />
-                <Button style="@style/NumberButton" android:id="@+id/btnFive" android:text="5" />
-                <Button style="@style/NumberButton" android:id="@+id/btnSix" android:text="6" />
-                <Button style="@style/OperationButton" android:id="@+id/btnMultiply" android:text="X" />
+                <Button style="@style/NumberButton" android:id="@+id/btnFore" android:text="4" android:onClick="oclBtnFore" />
+                <Button style="@style/NumberButton" android:id="@+id/btnFive" android:text="5" android:onClick="oclBtnFive" />
+                <Button style="@style/NumberButton" android:id="@+id/btnSix" android:text="6" android:onClick="oclBtnSix" />
+                <Button style="@style/OperationButton" android:id="@+id/btnMultiply" android:text="X" android:onClick="oclBtnMultiply" />
 
             </LinearLayout>
 
@@ -101,10 +99,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button style="@style/NumberButton" android:id="@+id/btnSeven" android:text="7" />
-                <Button style="@style/NumberButton" android:id="@+id/btnEight" android:text="8" />
-                <Button style="@style/NumberButton" android:id="@+id/btnNine" android:text="9" />
-                <Button style="@style/OperationButton" android:id="@+id/btnSubtruct" android:text="-"/>
+                <Button style="@style/NumberButton" android:id="@+id/btnSeven" android:text="7" android:onClick="oclBtnSeven" />
+                <Button style="@style/NumberButton" android:id="@+id/btnEight" android:text="8" android:onClick="oclBtnEight" />
+                <Button style="@style/NumberButton" android:id="@+id/btnNine" android:text="9" android:onClick="oclBtnNine" />
+                <Button style="@style/OperationButton" android:id="@+id/btnSubtruct" android:text="-" android:onClick="oclBtnSubtruct" />
 
             </LinearLayout>
 
@@ -113,10 +111,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button style="@style/OperationButton" android:id="@+id/btnExponentiation" android:text="x^y" />
-                <Button style="@style/NumberButton" android:id="@+id/btnZero" android:text="0" />
-                <Button style="@style/OperationButton" android:id="@+id/btnComma" android:text="," />
-                <Button style="@style/OperationButton" android:id="@+id/btnResult" android:text="=" />
+                <Button style="@style/OperationButton" android:id="@+id/btnExponentiation" android:text="x^y" android:onClick="oclBtnExponentiation"/>
+                <Button style="@style/NumberButton" android:id="@+id/btnZero" android:text="0" android:onClick="oclBtnZero" />
+                <Button style="@style/OperationButton" android:id="@+id/btnComma" android:text="," android:onClick="oclBtnComma" />
+                <Button style="@style/OperationButton" android:id="@+id/btnResult" android:text="=" android:onClick="oclBtnResult" />
 
 
             </LinearLayout>

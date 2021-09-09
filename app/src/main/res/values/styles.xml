@@ -6,7 +6,7 @@
     <style name="NumberButton" parent="android:style/Widget.Button">
         <item name="android:textSize">50sp</item>
         <item name="android:layout_margin">2dip</item>
-        <item name="android:background">#FFEE58</item>
+        <item name="android:backgroundTint">#FFEE58</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">25</item>
@@ -15,7 +15,25 @@
     <style name="OperationButton" parent="android:style/Widget.Button">
         <item name="android:textSize">50sp</item>
         <item name="android:layout_margin">2dip</item>
-        <item name="android:background">#FFEE58</item>
+        <item name="android:backgroundTint">#FFEE58</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:text">...</item>
+    </style>
+    <style name="NumberButtonHorizontal" parent="android:style/Widget.Button">
+    <item name="android:textSize">20sp</item>
+    <item name="android:layout_margin">2dip</item>
+    <item name="android:backgroundTint">#FFEE58</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:layout_weight">25</item>
+    <item name="android:text">$</item>
+</style>
+    <style name="OperationButtonHorizontal" parent="android:style/Widget.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:backgroundTint">#FFEE58</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">25</item>
