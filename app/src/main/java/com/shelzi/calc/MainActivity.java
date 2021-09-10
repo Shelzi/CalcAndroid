@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.udojava.evalex.Expression;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnBack;
     Button btnPercent;
     Button btnClear;
+    Button btnPlus;
 
     TextView myAwesomeTextView;
 
@@ -52,10 +55,15 @@ public class MainActivity extends AppCompatActivity {
         btnBack = (Button) findViewById(R.id.btnBack);
         btnClear = (Button) findViewById(R.id.btnClear);
         btnPercent = (Button) findViewById(R.id.btnPercent);
-
+        btnPlus = (Button) findViewById(R.id.btnPlus);
         btnResult = (Button) findViewById(R.id.btnResult);
         tvIn = (TextView)findViewById(R.id.tvIn);
         tvOut = (TextView)findViewById(R.id.tvOut);
+
+/*        ScrollView scrollView = new ScrollView(this);
+        scrollView.addView(tvOut);
+        setContentView(scrollView);*/
+
         getSupportActionBar().hide();
         initView();
     }
@@ -93,13 +101,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void initView(){
 
+
+        View.OnClickListener oclBtn = new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                //!!!!!! Доделать реализацию проверки на первый символ !!!!!!!
+                String lastChar  = new String ((String)tvIn.getText());
+                lastChar = lastChar.substring(lastChar.length() - 1);
+                String finalLastChar = lastChar;
+               switch (v.getId()) {
+                   case R.id.btnPlus: if(!finalLastChar.equals("+")) tvIn.setText(tvIn.getText() + "+");
+                   case R.id.btnPercent: if(!finalLastChar.equals("%")) tvIn.setText(tvIn.getText() + "%");
+
+               }
+            }
+        };
+
         View.OnClickListener oclBtnResult = new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 if(!tvIn.getText().equals("")){
                     Expression expression = new Expression((String)tvIn.getText());
                     String answer = new  String(String.valueOf(expression.eval()));
-                    tvOut.setText(answer);
+                    tvOut.setText(answer + "\n");
                 }
             }
         };
@@ -123,14 +149,23 @@ public class MainActivity extends AppCompatActivity {
         btnResult.setOnClickListener(oclBtnResult);
         btnBack.setOnClickListener(oclBtnBack);
         btnClear.setOnClickListener(oclBtnClear);
+        btnPercent.setOnClickListener(oclBtn);
+        btnPlus.setOnClickListener(oclBtn);
     }
 
-    @SuppressLint("SetTextI18n")
+   /* @SuppressLint("SetTextI18n")
     public void oclBtnPlus(View view) {
         String temp  = new String ((String)tvIn.getText());
         temp = temp.substring(temp.length() - 1);
         if(!temp.equals("+")) tvIn.setText(tvIn.getText() + "+");
-    }
+    }*/
+
+/*    @SuppressLint("SetTextI18n")
+    public void oclBtnPercent(View view) {
+        String temp  = new String ((String)tvIn.getText());
+        temp = temp.substring(temp.length() - 1);
+        if(!temp.equals("%")) tvIn.setText(tvIn.getText() + "+");
+    }*/
 
     //@SuppressLint("SetTextI18n")
     /*public void oclBtnResult(View view) {
