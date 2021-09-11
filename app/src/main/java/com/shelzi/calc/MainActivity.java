@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnPercent;
     Button btnClear;
     Button btnPlus;
+    Button btnMultiply;
 
     TextView myAwesomeTextView;
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         btnClear = (Button) findViewById(R.id.btnClear);
         btnPercent = (Button) findViewById(R.id.btnPercent);
         btnPlus = (Button) findViewById(R.id.btnPlus);
+        btnMultiply = (Button) findViewById(R.id.btnMultiply);
         btnResult = (Button) findViewById(R.id.btnResult);
         tvIn = (TextView)findViewById(R.id.tvIn);
         tvOut = (TextView)findViewById(R.id.tvOut);
@@ -106,15 +108,26 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                //!!!!!! Доделать реализацию проверки на первый символ !!!!!!!
-                String lastChar  = new String ((String)tvIn.getText());
-                lastChar = lastChar.substring(lastChar.length() - 1);
-                String finalLastChar = lastChar;
-               switch (v.getId()) {
-                   case R.id.btnPlus: if(!finalLastChar.equals("+")) tvIn.setText(tvIn.getText() + "+");
-                   case R.id.btnPercent: if(!finalLastChar.equals("%")) tvIn.setText(tvIn.getText() + "%");
+                if(!(tvIn.getText().length() == 0)){
+                    String lastChar  = new String ((String)tvIn.getText());
+                    lastChar = lastChar.substring(lastChar.length() - 1);
+                    String finalLastChar = lastChar;
+                       switch (v.getId()) {
+                           case R.id.btnPlus: {
+                               if(!finalLastChar.equals("+")) tvIn.setText(tvIn.getText() + "+");
+                               break;
+                           }
+                           case R.id.btnMultiply: {
+                               if(!finalLastChar.equals("*")) tvIn.setText(tvIn.getText() + "*");
+                               break;
+                           }
+                           case R.id.btnPercent: {
+                               if(!finalLastChar.equals("%")) tvIn.setText(tvIn.getText() + "%");
+                               break;
+                           }
 
-               }
+                       }
+                }
             }
         };
 
@@ -124,8 +137,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!tvIn.getText().equals("")){
                     Expression expression = new Expression((String)tvIn.getText());
-                    String answer = new  String(String.valueOf(expression.eval()));
-                    tvOut.setText(answer + "\n");
+                    String answer = new String();
+                    try {
+                        answer = String.valueOf(expression.eval());
+                    } catch (Exception e) {
+                        answer = "Error";
+                    } finally {
+                        tvOut.setText(answer);
+                    }
                 }
             }
         };
@@ -151,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         btnClear.setOnClickListener(oclBtnClear);
         btnPercent.setOnClickListener(oclBtn);
         btnPlus.setOnClickListener(oclBtn);
+        btnMultiply.setOnClickListener(oclBtn);
     }
 
    /* @SuppressLint("SetTextI18n")
@@ -160,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         if(!temp.equals("+")) tvIn.setText(tvIn.getText() + "+");
     }*/
 
-/*    @SuppressLint("SetTextI18n")
+    /* @SuppressLint("SetTextI18n")
     public void oclBtnPercent(View view) {
         String temp  = new String ((String)tvIn.getText());
         temp = temp.substring(temp.length() - 1);
