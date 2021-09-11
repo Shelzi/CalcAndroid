@@ -61,7 +61,7 @@
                 android:orientation="horizontal">
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSin" android:text="sin"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnCos" android:text="cos"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnProcent" android:text="%"/>
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPercent" android:text="%"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnClear" android:text="C"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnBack" android:text="←"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPlus" android:text="+" />

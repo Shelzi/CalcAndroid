@@ -118,7 +118,7 @@
 
                 <Button style="@style/OperationButton" android:id="@+id/btnExponentiation" android:text="x^y" android:onClick="oclBtnExponentiation"/>
                 <Button style="@style/NumberButton" android:id="@+id/btnZero" android:text="0" android:onClick="oclBtnZero" />
-                <Button style="@style/OperationButton" android:id="@+id/btnComma" android:text="," android:onClick="oclBtnComma" />
+                <Button style="@style/OperationButton" android:id="@+id/btnComma" android:text="." android:onClick="oclBtnComma" />
                 <Button style="@style/OperationButton" android:id="@+id/btnResult" android:text="=" android:onClick="oclBtnResult" />
 
 
