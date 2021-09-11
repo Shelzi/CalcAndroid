@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import com.udojava.evalex.Expression;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView tvOut;
@@ -73,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
 /*        ScrollView scrollView = new ScrollView(this);
         scrollView.addView(tvOut);
         setContentView(scrollView);*/
-
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
     }
 
@@ -156,8 +158,6 @@ public class MainActivity extends AppCompatActivity {
                             if (!finalLastChar.equals("/")) tvIn.setText(tvIn.getText() + "/");
                             break;
                         }
-
-
                     }
                 }
             }
@@ -181,9 +181,9 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                if (!tvIn.getText().equals("")) {
+                if (!(tvIn.getText().length() == 0)) {
                     Expression expression = new Expression((String) tvIn.getText());
-                    String answer = new String();
+                    String answer = "";
                     try {
                         answer = String.valueOf(expression.eval().doubleValue());
                     } catch (Exception e) {
@@ -198,9 +198,11 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener oclBtnBack = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String temp = new String((String) tvIn.getText());
-                temp = temp.substring(0, temp.length() - 1);
-                tvIn.setText(temp);
+                if (!(tvIn.getText().length() == 0)) {
+                    String temp = new String((String) tvIn.getText());
+                    temp = temp.substring(0, temp.length() - 1);
+                    tvIn.setText(temp);
+                }
             }
         };
 
@@ -214,6 +216,20 @@ public class MainActivity extends AppCompatActivity {
         btnComma.setOnClickListener(oclBtn);
         btnExponentiation.setOnClickListener(oclBtn);
         btnDivide.setOnClickListener(oclBtn);
+
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("tvIn", tvIn.getText().toString());
+        outState.putString("tvOut", tvOut.getText().toString());
+
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        tvIn.setText(savedInstanceState.getString("tvIn"));
+        tvOut.setText(savedInstanceState.getString("tvOut"));
 
     }
 }

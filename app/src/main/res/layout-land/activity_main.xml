@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@android:style/Theme.Black.NoTitleBar"
     android:padding="8dp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +28,10 @@
                 <TextView
                     android:id="@+id/tvOut"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:textSize="30sp"
+                    android:gravity="right|bottom"
+                    android:maxLines = "20">
                 </TextView>
             </LinearLayout>
 
@@ -43,7 +48,9 @@
                 <TextView
                     android:id="@+id/tvIn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:textSize="30sp"
+                    android:gravity="right|bottom">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
@@ -61,10 +68,10 @@
                 android:orientation="horizontal">
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSin" android:text="sin"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnCos" android:text="cos"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPercent" android:text="%"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnClear" android:text="C"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnBack" android:text="←"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPlus" android:text="+" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPercent" android:text="%" android:onClick="oclBtnProcent"/>
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnClear" android:text="C" android:onClick="oclBtnClear"/>
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnBack" android:text="←" android:onClick="oclBtnBack"/>
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPlus" android:text="+" android:onClick="oclBtnPlus" />
 
 
             </LinearLayout>
@@ -74,15 +81,12 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button  android:id="@+id/btnTan" style="@style/OperationButtonHorizontal" android:text="tan" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnTan" android:text="tan" />
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLg" android:text="lg"/>
-                <Button
-                    android:id="@+id/btnOne"
-                    style="@style/NumberButtonHorizontal"
-                    android:text="1" android:onClick="oclBtnOne"/>
+                <Button android:id="@+id/btnOne" style="@style/NumberButtonHorizontal" android:text="1" android:onClick="oclBtnOne" />
                 <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnTwo" android:text="2" android:onClick="oclBtnTwo" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnThree" android:text="3" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnDivide" android:text="/"/>
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnThree" android:text="3" android:onClick="oclBtnThree" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnDivide" android:text="/" android:onClick="oclBtnDivide"/>
             </LinearLayout>
 
 
@@ -93,10 +97,10 @@
 
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLn" android:text="ln"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSqrt" android:text="sqrt"/>
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFore" android:text="4" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFive" android:text="5" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSix" android:text="6" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnMultiply" android:text="X" />
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFore" android:text="4" android:onClick="oclBtnFore" />
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFive" android:text="5" android:onClick="oclBtnFive" />
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSix" android:text="6" android:onClick="oclBtnSix" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnMultiply" android:text="X" android:onClick="oclBtnMultiply" />
 
             </LinearLayout>
 
@@ -107,10 +111,10 @@
 
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnFact" android:text="X!"/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnOneDivByX" android:text="1/X"/>
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSeven" android:text="7" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnEight" android:text="8" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnNine" android:text="9" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSubtruct" android:text="-"/>
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSeven" android:text="7" android:onClick="oclBtnSeven" />
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnEight" android:text="8" android:onClick="oclBtnEight" />
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnNine" android:text="9" android:onClick="oclBtnNine" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSubtruct" android:text="-" android:onClick="oclBtnSubtruct" />
 
             </LinearLayout>
 
@@ -121,10 +125,10 @@
 
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLeftBracket" android:text="("/>
                 <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnRightBracket" android:text=")"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnExponentiation" android:text="x^y" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnZero" android:text="0" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnComma" android:text="," />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnResult" android:text="=" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnExponentiation" android:text="x^y" android:onClick="oclBtnExponentiation"/>
+                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnZero" android:text="0" android:onClick="oclBtnZero" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnComma" android:text="." android:onClick="oclBtnComma" />
+                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnResult" android:text="=" android:onClick="oclBtnResult" />
 
 
             </LinearLayout>
