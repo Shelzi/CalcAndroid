@@ -97,46 +97,6 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-    public void oclBtnOne(View view) {
-        tvIn.setText(tvIn.getText() + "1");
-    }
-
-    public void oclBtnTwo(View view) {
-        tvIn.setText(tvIn.getText() + "2");
-    }
-
-    public void oclBtnThree(View view) {
-        tvIn.setText(tvIn.getText() + "3");
-    }
-
-    public void oclBtnFore(View view) {
-        tvIn.setText(tvIn.getText() + "4");
-    }
-
-    public void oclBtnFive(View view) {
-        tvIn.setText(tvIn.getText() + "5");
-    }
-
-    public void oclBtnSix(View view) {
-        tvIn.setText(tvIn.getText() + "6");
-    }
-
-    public void oclBtnSeven(View view) {
-        tvIn.setText(tvIn.getText() + "7");
-    }
-
-    public void oclBtnEight(View view) {
-        tvIn.setText(tvIn.getText() + "8");
-    }
-
-    public void oclBtnNine(View view) {
-        tvIn.setText(tvIn.getText() + "9");
-    }
-
-    public void oclBtnZero(View view) {
-        tvIn.setText(tvIn.getText() + "0");
-    }
-
     public void initView() {
         final Animation animScale = AnimationUtils.loadAnimation(this, R.anim.myscale);
 
@@ -169,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         case R.id.btnClear: {
                             tvIn.setText("");
+                            tvOut.setText("");
                             break;
                         }
                         case R.id.btnComma: {
@@ -179,6 +140,37 @@ public class MainActivity extends AppCompatActivity {
                             if (!finalLastChar.equals("/")) tvIn.setText(tvIn.getText() + "/");
                             break;
                         }
+                        case R.id.btnOne: {
+                            tvIn.setText(tvIn.getText() + "1");
+                        }
+                        case R.id.btnTwo: {
+                            tvIn.setText(tvIn.getText() + "2");
+                        }
+                        case R.id.btnThree: {
+                            tvIn.setText(tvIn.getText() + "3");
+                        }
+                        case R.id.btnFore: {
+                            tvIn.setText(tvIn.getText() + "4");
+                        }
+                        case R.id.btnFive: {
+                            tvIn.setText(tvIn.getText() + "5");
+                        }
+                        case R.id.btnSix: {
+                            tvIn.setText(tvIn.getText() + "6");
+                        }
+                        case R.id.btnSeven: {
+                            tvIn.setText(tvIn.getText() + "7");
+                        }
+                        case R.id.btnEight: {
+                            tvIn.setText(tvIn.getText() + "8");
+                        }
+                        case R.id.btnNine: {
+                            tvIn.setText(tvIn.getText() + "9");
+                        }
+                        case R.id.btnZero: {
+                            tvIn.setText(tvIn.getText() + "0");
+                        }
+
 
                     }
                 }
@@ -270,6 +262,16 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        btnOne.setOnClickListener(oclBtn);
+        btnTwo.setOnClickListener(oclBtn);
+        btnThree.setOnClickListener(oclBtn);
+        btnFore.setOnClickListener(oclBtn);
+        btnFive.setOnClickListener(oclBtn);
+        btnSix.setOnClickListener(oclBtn);
+        btnSeven.setOnClickListener(oclBtn);
+        btnEight.setOnClickListener(oclBtn);
+        btnNine.setOnClickListener(oclBtn);
+        btnZero.setOnClickListener(oclBtn);
         btnResult.setOnClickListener(oclBtnResult);
         btnBack.setOnClickListener(oclBtnBack);
         btnSubtruct.setOnClickListener(oclBtnSubtruct);
@@ -280,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
         btnComma.setOnClickListener(oclBtn);
         btnExponentiation.setOnClickListener(oclBtn);
         btnDivide.setOnClickListener(oclBtn);
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             btnRightBracket.setOnClickListener(oclBtnLandscape);
             btnLeftBracket.setOnClickListener(oclBtnLandscape);

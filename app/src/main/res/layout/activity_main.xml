@@ -31,7 +31,8 @@
                     android:layout_height="match_parent"
                     android:textSize="30sp"
                     android:gravity="right|bottom"
-                    android:maxLines = "20">
+                    android:maxLines = "20"
+                    android:textColor="@color/black">
                 </TextView>
             </LinearLayout>
 
@@ -50,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="30sp"
-                    android:gravity="right|bottom">
+                    android:gravity="right|bottom"
+                    android:textColor="@color/black">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
