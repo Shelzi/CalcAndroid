@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     switch (v.getId()) {
                         case R.id.btnPlus: {
                             if (!finalLastChar.equals("+")) tvIn.setText(tvIn.getText() + "+");
-
                             break;
                         }
                         case R.id.btnMultiply: {
@@ -140,38 +139,6 @@ public class MainActivity extends AppCompatActivity {
                             if (!finalLastChar.equals("/")) tvIn.setText(tvIn.getText() + "/");
                             break;
                         }
-                        case R.id.btnOne: {
-                            tvIn.setText(tvIn.getText() + "1");
-                        }
-                        case R.id.btnTwo: {
-                            tvIn.setText(tvIn.getText() + "2");
-                        }
-                        case R.id.btnThree: {
-                            tvIn.setText(tvIn.getText() + "3");
-                        }
-                        case R.id.btnFore: {
-                            tvIn.setText(tvIn.getText() + "4");
-                        }
-                        case R.id.btnFive: {
-                            tvIn.setText(tvIn.getText() + "5");
-                        }
-                        case R.id.btnSix: {
-                            tvIn.setText(tvIn.getText() + "6");
-                        }
-                        case R.id.btnSeven: {
-                            tvIn.setText(tvIn.getText() + "7");
-                        }
-                        case R.id.btnEight: {
-                            tvIn.setText(tvIn.getText() + "8");
-                        }
-                        case R.id.btnNine: {
-                            tvIn.setText(tvIn.getText() + "9");
-                        }
-                        case R.id.btnZero: {
-                            tvIn.setText(tvIn.getText() + "0");
-                        }
-
-
                     }
                 }
             }
@@ -262,16 +229,61 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        btnOne.setOnClickListener(oclBtn);
-        btnTwo.setOnClickListener(oclBtn);
-        btnThree.setOnClickListener(oclBtn);
-        btnFore.setOnClickListener(oclBtn);
-        btnFive.setOnClickListener(oclBtn);
-        btnSix.setOnClickListener(oclBtn);
-        btnSeven.setOnClickListener(oclBtn);
-        btnEight.setOnClickListener(oclBtn);
-        btnNine.setOnClickListener(oclBtn);
-        btnZero.setOnClickListener(oclBtn);
+        View.OnClickListener oclBtnNumbers = v -> {
+            switch (v.getId()) {
+                case R.id.btnOne: {
+                    tvIn.setText(tvIn.getText() + "1");
+                    break;
+                }
+                case R.id.btnTwo: {
+                    tvIn.setText(tvIn.getText() + "2");
+                    break;
+                }
+                case R.id.btnThree: {
+                    tvIn.setText(tvIn.getText() + "3");
+                    break;
+                }
+                case R.id.btnFore: {
+                    tvIn.setText(tvIn.getText() + "4");
+                    break;
+                }
+                case R.id.btnFive: {
+                    tvIn.setText(tvIn.getText() + "5");
+                    break;
+                }
+                case R.id.btnSix: {
+                    tvIn.setText(tvIn.getText() + "6");
+                    break;
+                }
+                case R.id.btnSeven: {
+                    tvIn.setText(tvIn.getText() + "7");
+                    break;
+                }
+                case R.id.btnEight: {
+                    tvIn.setText(tvIn.getText() + "8");
+                    break;
+                }
+                case R.id.btnNine: {
+                    tvIn.setText(tvIn.getText() + "9");
+                    break;
+                }
+                case R.id.btnZero: {
+                    tvIn.setText(tvIn.getText() + "0");
+                    break;
+                }
+            }
+        };
+
+        btnOne.setOnClickListener(oclBtnNumbers);
+        btnTwo.setOnClickListener(oclBtnNumbers);
+        btnThree.setOnClickListener(oclBtnNumbers);
+        btnFore.setOnClickListener(oclBtnNumbers);
+        btnFive.setOnClickListener(oclBtnNumbers);
+        btnSix.setOnClickListener(oclBtnNumbers);
+        btnSeven.setOnClickListener(oclBtnNumbers);
+        btnEight.setOnClickListener(oclBtnNumbers);
+        btnNine.setOnClickListener(oclBtnNumbers);
+        btnZero.setOnClickListener(oclBtnNumbers);
         btnResult.setOnClickListener(oclBtnResult);
         btnBack.setOnClickListener(oclBtnBack);
         btnSubtruct.setOnClickListener(oclBtnSubtruct);
