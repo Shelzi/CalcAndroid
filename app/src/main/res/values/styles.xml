@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <style name="ApplicationStyle" parent="android:Theme">
         <item name="android:buttonStyle">@style/NumberButton</item>
     </style>
+
     <style name="NumberButton" parent="android:style/Widget.Button">
         <item name="android:textSize">50sp</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:text">$</item>
+        <item name="android:background">@drawable/roundedbutton</item>
+        <item name="backgroundTint">#C0C4C6</item>
+        <item name="fontFamily">Roboto-Bold</item>
+    </style>
+
+    <style name="OperationButton" parent="android:style/Widget.Button">
+        <item name="android:textSize">50sp</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:backgroundTint"><![CDATA[#FFEE58]]></item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:text">...</item>
+        <item name="android:background">@drawable/roundedbutton</item>
+        <item name="backgroundTint">#04A7EC</item>
+        <item name="fontFamily">Roboto-Italic</item>
+    </style>
+
+    <style name="NumberButtonHorizontal" parent="android:style/Widget.Button">
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_margin">2dip</item>
         <item name="android:backgroundTint">#FFEE58</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">25</item>
         <item name="android:text">$</item>
+        <item name="android:background">@drawable/roundedbutton</item>
+        <item name="backgroundTint">#C0C4C6</item>
     </style>
-    <style name="OperationButton" parent="android:style/Widget.Button">
-        <item name="android:textSize">50sp</item>
-        <item name="android:layout_margin">2dip</item>
-        <item name="android:backgroundTint">#FFEE58</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">25</item>
-        <item name="android:text">...</item>
-    </style>
-    <style name="NumberButtonHorizontal" parent="android:style/Widget.Button">
-    <item name="android:textSize">20sp</item>
-    <item name="android:layout_margin">2dip</item>
-    <item name="android:backgroundTint">#FFEE58</item>
-    <item name="android:layout_width">0dp</item>
-    <item name="android:layout_height">match_parent</item>
-    <item name="android:layout_weight">25</item>
-    <item name="android:text">$</item>
-</style>
+
     <style name="OperationButtonHorizontal" parent="android:style/Widget.Button">
         <item name="android:textSize">20sp</item>
         <item name="android:layout_margin">2dip</item>
@@ -38,6 +50,8 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">25</item>
         <item name="android:text">...</item>
+        <item name="android:background">@drawable/roundedbutton</item>
+        <item name="backgroundTint">#04A7EC</item>
     </style>
 
 

@@ -4,19 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.udojava.evalex.Expression;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -93,10 +89,10 @@ public class MainActivity extends AppCompatActivity {
             btnLn = (Button) findViewById(R.id.btnLn);
             btnFact = (Button) findViewById(R.id.btnFact);
             btnOneDivByX = (Button) findViewById(R.id.btnOneDivByX);
+            btnSqrt = (Button) findViewById(R.id.btnSqrt);
         }
-/*      ScrollView scrollView = new ScrollView(this);
-        scrollView.addView(tvOut);
-        setContentView(scrollView);*/
+
+
         Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
     }
@@ -142,10 +138,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initView() {
+        final Animation animScale = AnimationUtils.loadAnimation(this, R.anim.myscale);
+
         View.OnClickListener oclBtn = new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                v.startAnimation(animScale);
                 if (!(tvIn.getText().length() == 0)) {
                     String lastChar = (String) tvIn.getText();
                     lastChar = lastChar.substring(lastChar.length() - 1);
@@ -153,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (v.getId()) {
                         case R.id.btnPlus: {
                             if (!finalLastChar.equals("+")) tvIn.setText(tvIn.getText() + "+");
+
                             break;
                         }
                         case R.id.btnMultiply: {
@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                v.startAnimation(animScale);
                 if (tvIn.getText().length() == 0) {
                     tvIn.setText("-");
                 } else {
@@ -203,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                v.startAnimation(animScale);
                 if (!(tvIn.getText().length() == 0)) {
                     Expression expression = new Expression((String) tvIn.getText());
                     String answer = "";
@@ -220,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener oclBtnBack = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.startAnimation(animScale);
                 if (!(tvIn.getText().length() == 0)) {
                     String temp = (String) tvIn.getText();
                     temp = temp.substring(0, temp.length() - 1);
@@ -228,22 +231,44 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        View.OnClickListener oclBtnRightBracket = new View.OnClickListener() {
+        View.OnClickListener oclBtnLandscape = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvIn.setText(tvIn.getText() + ")");
+                v.startAnimation(animScale);
+                switch (v.getId()) {
+                    case R.id.btnRightBracket:
+                        tvIn.setText(tvIn.getText() + ")");
+                        break;
+                    case R.id.btnLeftBracket:
+                        tvIn.setText(tvIn.getText() + "(");
+                        break;
+                    case R.id.btnSin:
+                        tvIn.setText(tvIn.getText() + "sin(");
+                        break;
+                    case R.id.btnCos:
+                        tvIn.setText(tvIn.getText() + "cos(");
+                        break;
+                    case R.id.btnTan:
+                        tvIn.setText(tvIn.getText() + "tan(");
+                        break;
+                    case R.id.btnLn:
+                        tvIn.setText(tvIn.getText() + "log(");
+                        break;
+                    case R.id.btnLg:
+                        tvIn.setText(tvIn.getText() + "log10(");
+                        break;
+                    case R.id.btnFact:
+                        tvIn.setText(tvIn.getText() + "fact(");
+                        break;
+                    case R.id.btnOneDivByX:
+                        tvIn.setText(tvIn.getText() + "^(-1)");
+                        break;
+                    case R.id.btnSqrt:
+                        tvIn.setText(tvIn.getText() + "sqrt(");
+                        break;
+                }
             }
         };
-
-        View.OnClickListener oclBtnLeftBracket = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvIn.setText(tvIn.getText() + "(");
-            }
-        };
-
-
-
 
         btnResult.setOnClickListener(oclBtnResult);
         btnBack.setOnClickListener(oclBtnBack);
@@ -256,31 +281,29 @@ public class MainActivity extends AppCompatActivity {
         btnExponentiation.setOnClickListener(oclBtn);
         btnDivide.setOnClickListener(oclBtn);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            btnRightBracket.setOnClickListener(oclBtnRightBracket);
-            btnLeftBracket.setOnClickListener(oclBtnLeftBracket);
-            btnSin.setOnClickListener(oclBtnLeftBracket);
-            btnCos.setOnClickListener(oclBtnLeftBracket);
-            btnTan.setOnClickListener(oclBtnLeftBracket);
-            btnLn.setOnClickListener(oclBtnLeftBracket);
-            btnLg.setOnClickListener(oclBtnLeftBracket);
-            btnFact.setOnClickListener(oclBtnLeftBracket);
-            btnOneDivByX.setOnClickListener(oclBtnLeftBracket);
+            btnRightBracket.setOnClickListener(oclBtnLandscape);
+            btnLeftBracket.setOnClickListener(oclBtnLandscape);
+            btnSin.setOnClickListener(oclBtnLandscape);
+            btnCos.setOnClickListener(oclBtnLandscape);
+            btnTan.setOnClickListener(oclBtnLandscape);
+            btnLn.setOnClickListener(oclBtnLandscape);
+            btnLg.setOnClickListener(oclBtnLandscape);
+            btnFact.setOnClickListener(oclBtnLandscape);
+            btnOneDivByX.setOnClickListener(oclBtnLandscape);
+            btnSqrt.setOnClickListener(oclBtnLandscape);
         }
-
     }
 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("tvIn", tvIn.getText().toString());
         outState.putString("tvOut", tvOut.getText().toString());
-
     }
 
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         tvIn.setText(savedInstanceState.getString("tvIn"));
         tvOut.setText(savedInstanceState.getString("tvOut"));
-
     }
 }
 

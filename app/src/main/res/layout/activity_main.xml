@@ -67,7 +67,12 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button style="@style/OperationButton" android:id="@+id/btnPercent" android:text="%" android:onClick="oclBtnProcent"/>
+                <Button
+                    android:id="@+id/btnPercent"
+                    style="@style/OperationButton"
+                    android:onClick="oclBtnProcent"
+                    android:text="%" />
+
                 <Button style="@style/OperationButton" android:id="@+id/btnClear" android:text="C" android:onClick="oclBtnClear"/>
                 <Button style="@style/OperationButton" android:id="@+id/btnBack" android:text="←" android:onClick="oclBtnBack"/>
                 <Button style="@style/OperationButton" android:id="@+id/btnPlus" android:text="+" android:onClick="oclBtnPlus" />

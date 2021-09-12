@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
-    android:padding="8dp">
-
+    android:padding="8dp"
+    android:theme="@android:style/Theme.Black.NoTitleBar">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,33 +23,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
+
                 <TextView
                     android:id="@+id/tvOut"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="30sp"
                     android:gravity="right|bottom"
-                    android:maxLines = "20">
-                </TextView>
+                    android:maxLines="20"
+                    android:textSize="30sp"></TextView>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/black">
-            </LinearLayout>
+                android:background="@color/black"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
+
                 <TextView
                     android:id="@+id/tvIn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="30sp"
-                    android:gravity="right|bottom">
-                </TextView>
+                    android:gravity="right|bottom"
+                    android:textSize="30sp"></TextView>
             </LinearLayout>
         </LinearLayout>
 
@@ -66,55 +63,40 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSin" android:text="sin"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnCos" android:text="cos"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPercent" android:text="%" android:onClick="oclBtnProcent"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnClear" android:text="C" android:onClick="oclBtnClear"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnBack" android:text="←" android:onClick="oclBtnBack"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnPlus" android:text="+" android:onClick="oclBtnPlus" />
 
+                <Button
+                    android:id="@+id/btnSin"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="sin" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btnCos"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="cos" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                <Button
+                    android:id="@+id/btnPercent"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnProcent"
+                    android:text="%" />
 
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnTan" android:text="tan" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLg" android:text="lg"/>
-                <Button android:id="@+id/btnOne" style="@style/NumberButtonHorizontal" android:text="1" android:onClick="oclBtnOne" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnTwo" android:text="2" android:onClick="oclBtnTwo" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnThree" android:text="3" android:onClick="oclBtnThree" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnDivide" android:text="/" android:onClick="oclBtnDivide"/>
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btnClear"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnClear"
+                    android:text="C" />
 
+                <Button
+                    android:id="@+id/btnBack"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnBack"
+                    android:text="←" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLn" android:text="ln"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSqrt" android:text="sqrt"/>
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFore" android:text="4" android:onClick="oclBtnFore" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnFive" android:text="5" android:onClick="oclBtnFive" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSix" android:text="6" android:onClick="oclBtnSix" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnMultiply" android:text="X" android:onClick="oclBtnMultiply" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnFact" android:text="X!"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnOneDivByX" android:text="1/X"/>
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnSeven" android:text="7" android:onClick="oclBtnSeven" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnEight" android:text="8" android:onClick="oclBtnEight" />
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnNine" android:text="9" android:onClick="oclBtnNine" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnSubtruct" android:text="-" android:onClick="oclBtnSubtruct" />
+                <Button
+                    android:id="@+id/btnPlus"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnPlus"
+                    android:text="+" />
 
             </LinearLayout>
 
@@ -123,12 +105,161 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnLeftBracket" android:text="("/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnRightBracket" android:text=")"/>
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnExponentiation" android:text="x^y" android:onClick="oclBtnExponentiation"/>
-                <Button style="@style/NumberButtonHorizontal" android:id="@+id/btnZero" android:text="0" android:onClick="oclBtnZero" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnComma" android:text="." android:onClick="oclBtnComma" />
-                <Button style="@style/OperationButtonHorizontal" android:id="@+id/btnResult" android:text="=" android:onClick="oclBtnResult" />
+                <Button
+                    android:id="@+id/btnTan"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="tan" />
+
+                <Button
+                    android:id="@+id/btnLg"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="lg" />
+
+                <Button
+                    android:id="@+id/btnOne"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnOne"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/btnTwo"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnTwo"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/btnThree"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnThree"
+                    android:text="3" />
+
+                <Button
+                    android:id="@+id/btnDivide"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnDivide"
+                    android:text="/" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnLn"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="ln" />
+
+                <Button
+                    android:id="@+id/btnSqrt"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="sqrt" />
+
+                <Button
+                    android:id="@+id/btnFore"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnFore"
+                    android:text="4" />
+
+                <Button
+                    android:id="@+id/btnFive"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnFive"
+                    android:text="5" />
+
+                <Button
+                    android:id="@+id/btnSix"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnSix"
+                    android:text="6" />
+
+                <Button
+                    android:id="@+id/btnMultiply"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnMultiply"
+                    android:text="X" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnFact"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="X!" />
+
+                <Button
+                    android:id="@+id/btnOneDivByX"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="1/X" />
+
+                <Button
+                    android:id="@+id/btnSeven"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnSeven"
+                    android:text="7" />
+
+                <Button
+                    android:id="@+id/btnEight"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnEight"
+                    android:text="8" />
+
+                <Button
+                    android:id="@+id/btnNine"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnNine"
+                    android:text="9" />
+
+                <Button
+                    android:id="@+id/btnSubtruct"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnSubtruct"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnLeftBracket"
+                    style="@style/OperationButtonHorizontal"
+                    android:text="(" />
+
+                <Button
+                    android:id="@+id/btnRightBracket"
+                    style="@style/OperationButtonHorizontal"
+                    android:text=")" />
+
+                <Button
+                    android:id="@+id/btnExponentiation"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnExponentiation"
+                    android:text="x^y" />
+
+                <Button
+                    android:id="@+id/btnZero"
+                    style="@style/NumberButtonHorizontal"
+                    android:onClick="oclBtnZero"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/btnComma"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnComma"
+                    android:text="." />
+
+                <Button
+                    android:id="@+id/btnResult"
+                    style="@style/OperationButtonHorizontal"
+                    android:onClick="oclBtnResult"
+                    android:text="=" />
 
 
             </LinearLayout>
