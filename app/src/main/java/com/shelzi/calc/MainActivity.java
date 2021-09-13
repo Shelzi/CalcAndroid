@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+
         initView();
     }
 
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     Expression expression = new Expression((String) tvIn.getText());
                     String answer = "";
                     try {
-                        answer = String.valueOf(expression.eval().doubleValue());
+                        answer = String.valueOf(expression.eval().toEngineeringString());
                     } catch (Exception e) {
                         answer = "Error";
                     } finally {
@@ -230,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         View.OnClickListener oclBtnNumbers = v -> {
+            v.startAnimation(animScale);
             switch (v.getId()) {
                 case R.id.btnOne: {
                     tvIn.setText(tvIn.getText() + "1");
@@ -303,6 +304,7 @@ public class MainActivity extends AppCompatActivity {
             btnTan.setOnClickListener(oclBtnLandscape);
             btnLn.setOnClickListener(oclBtnLandscape);
             btnLg.setOnClickListener(oclBtnLandscape);
+
             btnFact.setOnClickListener(oclBtnLandscape);
             btnOneDivByX.setOnClickListener(oclBtnLandscape);
             btnSqrt.setOnClickListener(oclBtnLandscape);
